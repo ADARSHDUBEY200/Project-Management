@@ -47,8 +47,8 @@ const Navbar = () => {
   }, [debounce]);
 
   return (
-    <div className="w-screen  bg-zinc-900 px-6 py-2 fixed ">
-      <div className="h-20 flex justify-between items-center text-white capitalize">
+    <div className="w-screen  bg-white px-6 py-2">
+      <div className="h-20 flex justify-between items-center text-black capitalize">
         {/* nav-left */}
         <div className="flex  justify-between w-[50%] items-center">
           <div className=" relative">
