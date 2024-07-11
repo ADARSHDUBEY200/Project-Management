@@ -53,8 +53,11 @@ const Navbar = () => {
         <div className="flex  justify-between w-[50%] items-center">
           <div className=" relative">
             <img src="" alt="bpit" className="sm:block hidden" />
-            <span className="absolute -top-3 text-xl text-white sm:hidden  will-change-transform duration-700 ease-in-out">
-              <RxHamburgerMenu onClick={() => setsidemenu(!sidemenu)} className=" cursor-pointer" />
+            <span className="absolute -top-3 text-xl text-black sm:hidden  will-change-transform duration-700 ease-in-out">
+              <RxHamburgerMenu
+                onClick={() => setsidemenu(!sidemenu)}
+                className=" cursor-pointer"
+              />
               {sidemenu && (
                 <div className=" bg-[#3837373e] w-40 h-32 px-3  py-4  flex flex-col gap-5  mt-5 rounded-md">
                   <div className="relative ">
@@ -108,10 +111,10 @@ const Navbar = () => {
               research
             </h1>
             {Researchdropdownopen && (
-              <div className="absolute top-10 -left-10 rounded-md px-5 py-4  bg-[#bab8b811] w-52 h-auto">
+              <div className="absolute top-10 -left-10 rounded-md px-5 py-4  bg-[#3b3a3af8] w-52 h-auto">
                 <ul>
                   {Researchdropdown.map((item) => (
-                    <li key={item.id} className="text-xl mt-3">
+                    <li key={item.id} className="text-xl mt-3 text-white">
                       <Link to={item.to}>{item.title}</Link>
                     </li>
                   ))}
@@ -128,10 +131,10 @@ const Navbar = () => {
               Publications
             </h1>
             {Researchdropdownopen2 && (
-              <div className="absolute top-12 -left-10 rounded-md px-5 py-4 bg-[#bab8b811] w-52 h-32">
+              <div className="absolute top-12 -left-10 rounded-md px-5 py-4 bg-[#3b3a3af8] w-52 h-32">
                 <ul>
                   {Researchdropdown2.map((item) => (
-                    <li key={item.id} className="text-xl mt-3">
+                    <li key={item.id} className="text-xl mt-3 text-white">
                       <Link to={item.to}>{item.title}</Link>
                     </li>
                   ))}
@@ -139,10 +142,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
-        </div>
 
-        {/* search  */}
-        <div className="flex gap-10 w-[50%] justify-end ">
           <div className="flex items-center relative ">
             <input
               type="text"
@@ -150,19 +150,25 @@ const Navbar = () => {
               value={search}
               onChange={HandleSearchChange}
               ref={searchref}
-              className="w-32 sm:w-40 md:w-60 px-3 py-1 md:px-3 md:py-2 text-black outline-none rounded-md"
+              className="w-32 sm:w-40 md:w-60 px-3 py-1 md:px-3 md:py-3 text-white outline-none rounded-md bg-zinc-800"
             />
             <span
-              className="absolute sm:top-2 top-3 right-2 cursor-pointer sm:right-2 text-black font-bold text-[18px] sm:text-[20px]"
+              className="absolute sm:top-2 top-2 md:top-3 right-2 cursor-pointer sm:right-2 text-white font-bold text-[18px] sm:text-[20px]"
               onClick={() => setSearchbtn(searchref.current.focus())}
             >
-              <FiSearch />{" "}
+              <FiSearch />
             </span>
           </div>
+        </div>
 
+        {/* search  */}
+        <div className="flex gap-2 md:gap-10 w-[50%] justify-end ">
+          <button className="w-15 h-15 bg-blue-500 text-white px-4 py-2 rounded-full">
+            <Link to="/">User</Link>
+          </button>
           {/* login */}
 
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+          <button className="w-15 h-15 bg-blue-500 text-white px-4 py-2 rounded-full">
             <Link to="/">Login</Link>
           </button>
         </div>
