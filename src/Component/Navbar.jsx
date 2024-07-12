@@ -164,7 +164,7 @@ const Navbar = () => {
         {/* search  */}
         <div className="flex gap-2 md:gap-10 w-[50%] justify-end ">
           <button className="w-15 h-15 bg-blue-500 text-white px-4 py-2 rounded-full">
-            <Link to="/">User</Link>
+            <Link to="/user">User</Link>
           </button>
           {/* login */}
 

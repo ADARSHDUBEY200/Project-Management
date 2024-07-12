@@ -7,7 +7,7 @@ function Dropdown({ title, options, func }) {
         id="format"
         defaultValue="0"
         onChange={func}
-        className="w-32 sm:w-50 md:w-52 sm:w-40 border-none outline-none rounded-lg px-4 py-2 bg-zinc-800 text-white flex items-center justify-center"
+        className="w-32 sm:w-50 md:w-64 sm:w-40 border-none outline-none rounded-lg px-4 py-2 bg-zinc-800 text-white flex items-center justify-center"
       >
         <option value="0" disabled>
           {title}
