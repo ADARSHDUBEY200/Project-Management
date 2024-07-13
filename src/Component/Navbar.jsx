@@ -52,7 +52,13 @@ const Navbar = () => {
         {/* nav-left */}
         <div className="flex  justify-between w-[50%] items-center">
           <div className=" relative">
-            <img src="" alt="bpit" className="sm:block hidden" />
+            <Link to="/">
+              <img
+                src="../../public/imgs/bpit.png"
+                alt="bpit"
+                className="sm:block hidden w-20"
+              />
+            </Link>
             <span className="absolute -top-3 text-xl text-black sm:hidden  will-change-transform duration-700 ease-in-out">
               <RxHamburgerMenu
                 onClick={() => setsidemenu(!sidemenu)}
@@ -111,10 +117,13 @@ const Navbar = () => {
               research
             </h1>
             {Researchdropdownopen && (
-              <div className="absolute top-10 -left-10 rounded-md px-5 py-4  bg-[#3b3a3af8] w-52 h-auto">
+              <div className="absolute top-10 -left-10 rounded-md px-4 py-4  bg-[#3b3a3af8] w-52 h-auto z-10">
                 <ul>
                   {Researchdropdown.map((item) => (
-                    <li key={item.id} className="text-xl mt-3 text-white">
+                    <li
+                      key={item.id}
+                      className="text-xl mt-3 text-white text-center"
+                    >
                       <Link to={item.to}>{item.title}</Link>
                     </li>
                   ))}
@@ -131,7 +140,7 @@ const Navbar = () => {
               Publications
             </h1>
             {Researchdropdownopen2 && (
-              <div className="absolute top-12 -left-10 rounded-md px-5 py-4 bg-[#3b3a3af8] w-52 h-32">
+              <div className="absolute top-12 -left-10 rounded-md px-5 py-4 bg-[#3b3a3af8] w-52 h-32 z-10">
                 <ul>
                   {Researchdropdown2.map((item) => (
                     <li key={item.id} className="text-xl mt-3 text-white">

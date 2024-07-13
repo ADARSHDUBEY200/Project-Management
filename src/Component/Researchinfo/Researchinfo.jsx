@@ -1,20 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { UserForm } from "../Usecontext/UserForm/UserForm";
 
 const Researchinfo = () => {
   const [profilePhoto, setProfilePhoto] = useState(null);
-
-  const [formData, setFormData] = useState({
-    faculty: "",
-    Research: "",
-    email: "",
-    phonenumber: "",
-    department: "",
-    rollNumber: "",
-    researchstart: "",
-    researchend: "",
-  });
-
+  const [formData, setFormData] = useContext(UserForm);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -36,18 +26,14 @@ const Researchinfo = () => {
     accept: "image/*",
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   return (
-    <div className="w-[95vw] h-[80vh] px-10 overflow-hidden relative">
+    <div className="w-[95vw] h-[85vh] px-10 overflow-hidden relative">
       <div className="absolute pointer-events-none top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
         <h1 className=" opacity-[.1] select-none text-[25vw] font-serif uppercase">
           Bpit
         </h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="max-w-screen-xl  p-8 flex flex-col bg-[#403e3e41] rounded-xl  items-center h-screen mx-auto text-black">
           <div className="flex gap-[10vw] mb-10">
             <div>
@@ -80,7 +66,7 @@ const Researchinfo = () => {
             </div>
           </div>
 
-          <div className="w-full flex justify-center   mb-5">
+          <div className="w-full h-40 flex justify-center mt-5  mb-5">
             <div {...getRootProps()} className="profile-image-wrapper">
               <input {...getInputProps()} className="hidden-input" />
               <img
@@ -121,14 +107,17 @@ const Researchinfo = () => {
             </div>
           </div>
 
-          <div className="w-full px-20 ">
+          <div className="w-full  px-20 ">
             <label className="flex text-md font-medium text-white">
               About Research
             </label>
             <textarea
-              name=""
-              rows="5"
-              className="w-full outline-none px-5 py-4 overflow-scroll"
+              name="aboutResearch"
+              value={formData.aboutResearch}
+              onChange={handleChange}
+              rows="7"
+              autoCorrect=""
+              className="w-full  outline-none px-5 py-4 overflow-scroll"
             ></textarea>
           </div>
         </div>

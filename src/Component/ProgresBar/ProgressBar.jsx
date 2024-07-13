@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import "./Progress.css";
 import Researchinfo from "../Researchinfo/Researchinfo";
 import UserInfo from "../UserInfo/UserInfo";
-import { Link } from "react-router-dom";
+import { UserForm } from "../Usecontext/UserForm/UserForm";
 
 const CheckoutStepper = ({ stepsConfig = [] }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isComplete, setIsComplete] = useState(false);
+  const [handleSubmit] = useContext(UserForm);
 
   const handleNext = () => {
     setCurrentStep((prevStep) => {
@@ -19,10 +20,7 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
     });
   };
 
-  const calculateProgressBarWidth = () => {
-    return ((currentStep - 1) / (stepsConfig.length - 1)) * 100;
-  };
-
+  
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
 
   return (
@@ -62,15 +60,17 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
               <span className=" bg-blue-600  px-3 py-2 rounded-md  w-24 h-fit text-center gap-5 ">
                 {currentStep === stepsConfig.length ? "Previous" : "Next"}
               </span>
-              <Link to="/">
-                <span
-                  className={` ${
-                    currentStep === stepsConfig.length ? "bg-blue-600" : null
-                  }  px-4 py-3 rounded-md  w-24 h-fit text-center gap-5 `}
-                >
-                  {currentStep === stepsConfig.length ? "Submit" : null}
-                </span>
-              </Link>
+              <span
+                className={` ${
+                  currentStep === stepsConfig.length ? "bg-blue-600" : null
+                }  px-3 py-2 rounded-md  w-24 h-fit text-center gap-5 `}
+              >
+                {currentStep === stepsConfig.length ? (
+                  <button type="reset" onSubmit={handleSubmit}>
+                    Submit
+                  </button>
+                ) : null}
+              </span>
             </button>
           )}
         </div>

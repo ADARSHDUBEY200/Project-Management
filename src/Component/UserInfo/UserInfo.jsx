@@ -1,19 +1,9 @@
-import React, { useState } from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { UserForm } from "../Usecontext/UserForm/UserForm";
 
 const UserInfo = () => {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    Lastname: "",
-    email: "",
-    phonenumber: "",
-    department: "",
-    rollNumber: "",
-    batchstart: "",
-    batchend: "",
-    github: "",
-    linkdin: "",
-  });
+  const [formData, setFormData] = useContext(UserForm);
+  console.log(formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,15 +13,18 @@ const UserInfo = () => {
     });
   };
 
- 
+  const submit = () => {
+    console.log(formData);
+  };
 
- 
   return (
-    <div className="w-[95vw] h-[80vh] px-10 overflow-hidden relative">
-        <div className="absolute pointer-events-none top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"> 
-            <h1 className=" opacity-[.1]  text-[25vw] font-serif uppercase">Bpit</h1>
-        </div>
-      <form>
+    <div className="w-[95vw] h-[85vh] px-10 overflow-hidden relative">
+      <div className="absolute pointer-events-none top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+        <h1 className=" opacity-[.1]  text-[25vw] font-serif uppercase">
+          Bpit
+        </h1>
+      </div>
+      <form action="/">
         <div className="max-w-screen-lg  p-8 flex flex-col bg-[#605e5e2e] rounded-xl  items-center h-screen mx-auto text-black">
           <div className="flex gap-[10vw] mb-10">
             <div>
@@ -54,7 +47,7 @@ const UserInfo = () => {
               </label>
               <input
                 type="text"
-                name="lastname"
+                name="Lastname"
                 value={formData.Lastname}
                 onChange={handleChange}
                 placeholder="Lastname..."
@@ -94,19 +87,35 @@ const UserInfo = () => {
             </div>
           </div>
 
-          <div className="w-full px-20 mb-10">
-            <label className="flex text-md font-medium text-white">
-              Department
-            </label>
-            <input
-              type="text"
-              name="department"
-              value={formData.department}
-              onChange={handleChange}
-              placeholder="Department..."
-              required
-              className="mt-1  w-[70%] outline-none rounded-md px-3 py-2 "
-            />
+          <div className="flex gap-[10vw] mb-10">
+            <div>
+              <label className=" flex text-md font-medium text-white">
+                Department
+              </label>
+              <input
+                type="text"
+                name="department"
+                value={formData.department}
+                onChange={handleChange}
+                placeholder="Department..."
+                required
+                className="mt-1  w-[16vw] outline-none rounded-md px-3 py-2 "
+              />
+            </div>
+            <div>
+              <label className="flex text-md font-medium text-white">
+                Roll Number
+              </label>
+              <input
+                type="text"
+                name="rollNumber"
+                value={formData.rollNumber}
+                onChange={handleChange}
+                placeholder="Roll No."
+                required
+                className="mt-1  w-[16vw] outline-none rounded-md px-3 py-2 "
+              />
+            </div>
           </div>
           <div className="w-full  px-20 mb-10 ">
             <label className="flex text-md font-medium text-white">
@@ -168,7 +177,7 @@ const UserInfo = () => {
               />
             </div>
           </div>
-          <div className="flex fle-col w-full px-20 mt-16">
+          <div className="flex justify-between fle-col w-full px-20 mt-16">
             <button
               type="reset"
               className="w-fit h-fit px-4 py-3 cursor-pointer mt-8 text-white font-bold rounded-md bg-gray-400"

@@ -248,107 +248,17 @@ const Userprogile = () => {
           </div>
         </div>
         <div className="w-[80%] p-4 flex flex-col">
-          <div className="h-[60%] ">
-            <h1 className="text-3xl uppercase text-white mb-5 mt-1">
-              Ongoing Research
-            </h1>
-            <div className="w-full flex gap-5 p-2 md:p-2 overflow-x-auto relative">
-              {items.map((items) => (
-                <div
-                  key={items.id}
-                  className="md:w-[20vw] md:h-[48vh] sm:w-[40vw] sm:h-[44vh] w-[70vw] h-[45vh]  bg-[#3e4a5b] rounded-md"
-                >
-                  <div className="flex w-[70vw] h-fit gap-5 items-center">
-                    <div className="w-fit p-2 ">
-                      <Link to="/user">
-                        <img
-                          className="w-10 h-10 md:w-16 md:h-16 sm:w-10 sm:h-10 object-cover cursor-pointer  object-center rounded-full"
-                          src="https://plus.unsplash.com/premium_vector-1719858610096-bba4498e5fc1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D"
-                          alt="img"
-                        />
-                      </Link>
-                    </div>
-                    <div className="w-[13vw]  sm:w-[12vw]  flex   md:justify-between  text-white relative">
-                      <div className="flex justify-start  flex-col ">
-                        <h1 className=" text-sm md:text-lg font-serif">
-                          {items.username}
-                        </h1>
-                        <h1 className="text-sm">{items.likes}</h1>
-                      </div>
-                      <div>
-                        <span
-                          className="cursor-pointer"
-                          onClick={() => handleclick(items.id)}
-                        >
-                          ...
-                        </span>
-                        {open[items.id] && (
-                          <div className="absolute top-5 -right-28  p-5 w-[200px] rounded-md text-white">
-                            <button
-                              onClick={() => removecard(items.id)}
-                              className="bg-blue-500 px-3 py-2 rounded-md"
-                            >
-                              Remove
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="img  flex justify-center items-center mt-5 text-white">
-                    <img
-                      src=""
-                      alt="researchprove"
-                      className="w-[56vw] h-40 sm:w-[38vw] px-5 md:h-60 bg-zinc-300"
-                    />
-                  </div>
-                  <h1 className="px-3 mt-2 text-white">Project Name</h1>
-                  <div
-                    className="flex justify-end px-5
-                mt-1"
-                  >
-                    <Link to="/"> 
-                      <button className="text-white px-3 py-2 bg-blue-500 rounded-md">
-                        View
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="research-section">
+            <h2>THIS IS RESEARCH PROOF SECTION</h2>
+            <div className="section-content">researchproof</div>
           </div>
-          <h1 className="text-3xl uppercase text-white mb-5 mt-3">
-            Past Research
-          </h1>
-          <div className="  h-[40%] overflow-y-auto ">
-            <div className="w-full  flex flex-wrap gap-5  overflow-y-auto">
-              {pastdata.map((items) => (
-                <div className="w-[20vw] h-20 bg-zinc-300 rounded-lg flex items-center">
-                  <div className="p-5">
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={items.img}
-                      alt=""
-                    />
-                  </div>
-                  <div className="w-72 flex justify-between items-center">
-                    <div className="flex-col flex">
-                      <h1 className=" text-sm md:text-lg font-serif">
-                        {items.researchname}
-                      </h1>
-                      <h1 className="text-sm">{items.likes}</h1>
-                    </div>
-                    <div>
-                      <Link>
-                        <button className=" text-white py-2 px-3 bg-blue-500 rounded-md">
-                          view
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="research-section">
+            <h2>THIS IS ABOUT RESEARCH SECTION</h2>
+            <div className="section-content">aboutResearch</div>
+          </div>
+          <div className="research-section">
+            <h2>THIS IS RESEARCH APPROACH SECTION </h2>
+            <div className="section-content">researchApproach</div>
           </div>
         </div>
       </div>

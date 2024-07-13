@@ -15,7 +15,7 @@ const CHECKOUT_STEPS = [
 
 const AddResearch = () => {
   return (
-    <div className="w-screen h-[110vh] bg-zinc-800">
+    <div className="w-screen h-[120vh] bg-zinc-800">
       <Navbar />
 
       <div className=" flex justify-center mt-10">

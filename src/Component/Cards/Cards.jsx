@@ -37,7 +37,6 @@ const data = [
 ];
 
 const Cards = () => {
-
   const [open, setopen] = useState(false);
   const [items, setitems] = useState(data);
 
@@ -59,7 +58,7 @@ const Cards = () => {
   };
 
   return (
-    <div className="w-screen h-auto px-5 py-2 overflow-hidden">
+    <div className="w-screen h-auto px-5 py-2 overflow-hidden bg-zinc-800">
       <div className="w-screen flex gap-5 p-2 md:p-2 overflow-x-auto relative">
         {items.map((items, id) => (
           <div
@@ -113,11 +112,13 @@ const Cards = () => {
             <h1 className="px-3 mt-2">Project Name</h1>
             <div
               className="flex justify-end px-5
-                mt-4"
+                mt-1"
             >
-              <button className="px-3 py-2 bg-blue-500 rounded-md">
-                Profile
-              </button>
+              <Link to="/viewresearch">
+                <button className="text-white px-3 py-2 bg-blue-500 rounded-md">
+                  View
+                </button>
+              </Link>
             </div>
           </div>
         ))}
